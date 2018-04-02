@@ -6,7 +6,14 @@
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
+    "precommit": "lint-staged",
     "test": "jest"
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,mjs}": [
+      "prettier --single-quote --trailingComma all --write",
+      "git add"
+    ]
   },
   "dependencies": {
     "antd-mobile": "^2.1.6",
@@ -31,7 +38,10 @@
     "babel-plugin-transform-decorators-legacy": "^1.3.4",
     "babel-preset-react-native": "4.0.0",
     "jest": "21.2.1",
-    "react-test-renderer": "16.1.1"
+    "react-test-renderer": "16.1.1",
+    "husky": "^0.14.3",
+    "lint-staged": "^7.0.2",
+    "prettier": "^1.11.1"
   },
   "jest": {
     "preset": "react-native"
